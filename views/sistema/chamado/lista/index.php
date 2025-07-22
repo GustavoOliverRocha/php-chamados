@@ -72,7 +72,7 @@ selectgroup-input-warning:checked + .selectgroup-button {
       <div class="main-panel">
         @import(sistema.layout.navbar)
 
-        <div class="container">
+        <div id="vue-app" class="container">
           <div class="page-inner">
             <div class="page-header">
               <h3 class="fw-bold mb-3"> Chamados </h3>
@@ -99,45 +99,14 @@ selectgroup-input-warning:checked + .selectgroup-button {
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-
-
-
                   <div class="card-header">
                     <div class="card-title">Informações</div>
                   </div>
                   <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                        <table class="table table-bordered table-head-bg-info table-bordered-bd-info mt-4">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    </div>
+                          @import(sistema.chamado.lista.layout.grid)
+                        </div>
                     </div>
                   </div>
 
@@ -164,8 +133,35 @@ selectgroup-input-warning:checked + .selectgroup-button {
     <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/plugin/gmaps/gmaps.js"></script>
     <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
     <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/kaiadmin.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script> const BASE_URL = '[[baseUri]]'; </script>
+    <script>
+    const { createApp, ref, onMounted } = Vue
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/setting-demo2.js"></script>
+      createApp({
+        setup() {
+          const setores = ref([]);
+          const get_chamados = async () => {
+            try {
+              const URL = BASE_URL + '/chamado/get';
+              let response = await fetch(URL);
+              let json = await response.json();
+              console.log(json);
+              setores.value = json.data;
+              console.log(setores.value);
+            } catch (error) {
+              //data.value = [];
+              console.log(error.message);
+            }
+          };
+
+          onMounted(() => {
+            get_chamados();
+          });
+
+          return { setores };
+        }
+      }).mount('#vue-app');
+    </script>
   </body>
 </html>

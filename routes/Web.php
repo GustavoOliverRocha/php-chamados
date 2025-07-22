@@ -3,6 +3,7 @@ use Controller\UserController;
 
 use Controller\Chamado\CadastroController as ChamadoCadastro;
 use Controller\Chamado\IndexController as ChamadoIndex;
+use Controller\Chamado\ListarController as ChamadoData;
 use Controller\SetorController;
 
 return [
@@ -16,6 +17,7 @@ return [
 	'chamado/cadastro' => [ChamadoIndex::class, 'cadastro'],
 	'chamado/save' => [ChamadoCadastro::class, 'save'],
 	'chamado/lista' => [ChamadoIndex::class, 'listar'],
+	'chamado/get' => [ChamadoData::class, 'get'],
 	'setor/get_for_user' => [SetorController::class, 'getAll'],
 	
 ];
