@@ -157,5 +157,8 @@ selectgroup-input-warning:checked + .selectgroup-button {
     <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/kaiadmin.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="[[baseUri]]/views/sistema/chamado/cadastro/index-vue.js"></script>
+    <script>
+      document.querySelector('#menu-chamados').classList.remove('collapsed');
+    </script>
   </body>
 </html>

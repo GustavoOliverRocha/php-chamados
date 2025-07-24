@@ -86,7 +86,7 @@ selectgroup-input-warning:checked + .selectgroup-button {
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Alunos</a>
+                  <a href="#">Home</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
@@ -104,6 +104,7 @@ selectgroup-input-warning:checked + .selectgroup-button {
                   </div>
                   <div class="card-body">
                     <div class="row">
+                        @import(sistema.chamado.lista.layout.filter)
                         <div class="col-12">
                           @import(sistema.chamado.lista.layout.grid)
                         </div>
@@ -143,7 +144,15 @@ selectgroup-input-warning:checked + .selectgroup-button {
           const setores = ref([]);
           const get_chamados = async () => {
             try {
-              const URL = BASE_URL + '/chamado/get';
+              let situacao = document.querySelector('input[name="status"]:checked');
+              let prioridade = document.querySelector('input[name="prioridade"]:checked');
+              const params = new URLSearchParams({
+                situacao: situacao,
+                prioridade: prioridade
+              }).toString();
+
+              console.log(situacao);
+              const URL = BASE_URL + '/chamado/get/';
               let response = await fetch(URL);
               let json = await response.json();
               console.log(json);
@@ -151,6 +160,7 @@ selectgroup-input-warning:checked + .selectgroup-button {
               console.log(setores.value);
             } catch (error) {
               //data.value = [];
+              console.log(response);
               console.log(error.message);
             }
           };
@@ -162,6 +172,11 @@ selectgroup-input-warning:checked + .selectgroup-button {
           return { setores };
         }
       }).mount('#vue-app');
+
+      function sds(){
+
+      }
+
     </script>
   </body>
 </html>

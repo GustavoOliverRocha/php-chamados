@@ -3,23 +3,23 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <label for="email2">Setor Responsável</label>
+                <label for="email2">Setor Responsável <span class="text-danger">*</span></label>
                 <select class="form-control" id="setor" name="setor" required>
-                    <option value="">Selecione o setor</option>
+                    <option value="">Selecione o setor </option>
                     <option v-for="setor in setores" :value="setor.id">{{setor.nome}}</option>
                 </select>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <label for="email2">Assunto</label>
+                <label for="email2">Assunto <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Entre com o assunto" required>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 <div class="form-group">
-                          <label class="form-label">Prioridade</label>
+                          <label class="form-label">Prioridade <span class="text-danger">*</span></label>
                           <div class="selectgroup w-100">
                             <label class="selectgroup-item">
                               <input type="radio" name="prioridade" value="1" class="selectgroup-input" checked="">

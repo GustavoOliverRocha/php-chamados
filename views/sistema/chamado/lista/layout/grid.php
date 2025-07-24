@@ -6,7 +6,7 @@
                                     <th scope="col">Solicitante</th>
                                     <th scope="col">Prioridade</th>
                                     <th scope="col">Situação</th>
-                                    <th scope="col"><i class="icon-home"></i></th>
+                                    <th scope="col"><i class="icon-settings"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -14,10 +14,11 @@
                                     <td>{{chamado.id}}</td>
                                     <td>{{chamado.assunto}}</td>
                                     <td>{{chamado.usuario_solicitante_nome}} <br> <small>{{chamado.setor_solicitante_nome}}</small></td>
-                                    <td>Baixa</td>
+                                    <td>{{chamado.prioridade_nome}}</td>
                                     <td>Aberto</td>
                                     <td>
-                                        <a class="btn btn-primary"> <i class="icon-home"></i> </a>
+                                        <a class="btn btn-sm btn-primary"> <i class="fa fa-comment"></i> </a>
+                                        <a class="btn btn-sm btn-danger"> <i class="icon-ban"></i> </a>
                                     </td>
                                     </tr>
                                 </tbody>

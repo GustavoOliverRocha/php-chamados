@@ -21,7 +21,7 @@ class CadastroController
         }
 
         $prioridade = Request::post('prioridade','int');
-        if(!($prioridade >= 0 && $prioridade <= 4)){
+        if(!($prioridade >= 1 && $prioridade <= 4)){
             throw new Exception('Prioridade inválida');
         }
 
@@ -30,8 +30,8 @@ class CadastroController
             'prioridade' => $prioridade,
             //'setor_solicitante' => Session::get('setor'),
             //'usuario_solicitante' => Session::get('id'),
-            'setor_solicitante' => 2,
-            'usuario_solicitante' => 2,
+            'setor_solicitante' => 6,
+            'usuario_solicitante' => 4,
             'setor_atendente' => $setor,
         ];
 
