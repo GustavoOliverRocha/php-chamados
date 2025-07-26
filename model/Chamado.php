@@ -37,11 +37,28 @@ class Chamado extends Model
 		$status_nome = self::$status_nome;
 		
 		$data = (new QueryBuilder('chamado'))
-		->select('chamado.id','chamado.assunto','setor_solicitante.nome AS setor_solicitante_nome','usuario_solicitante.nome AS usuario_solicitante_nome', $prioridade_nome, $status_nome)
+		->select('chamado.id','chamado.assunto','chamado.prioridade','chamado.status','setor_solicitante.nome AS setor_solicitante_nome','usuario_solicitante.nome AS usuario_solicitante_nome', $prioridade_nome, $status_nome)
 		->join('user AS usuario_solicitante','usuario_solicitante.id = chamado.usuario_solicitante')
 		->join('setor AS setor_solicitante','setor_solicitante.id = chamado.setor_solicitante')
 		->where($filter)
 		->get();
+
+		return $data;
+	}
+	static function getById(int $id){
+		$prioridade_nome = self::$prioridade_nome;
+		$status_nome = self::$status_nome;
+		
+		$data = (new QueryBuilder('chamado'))
+		->select('chamado.id','chamado.assunto','chamado.desc','chamado.prioridade','chamado.status','setor_solicitante.nome AS setor_solicitante_nome','usuario_solicitante.nome AS usuario_solicitante_nome','setor_atendente.nome AS setor_atendente_nome','usuario_atendente.nome AS usuario_atendente_nome', $prioridade_nome, $status_nome)
+		->join('user AS usuario_solicitante','usuario_solicitante.id = chamado.usuario_solicitante')
+		->join('setor AS setor_solicitante','setor_solicitante.id = chamado.setor_solicitante')
+		->join('user AS usuario_atendente','usuario_atendente.id = chamado.usuario_atendente', 'LEFT')
+		->join('setor AS setor_atendente','setor_atendente.id = chamado.setor_atendente', 'LEFT')
+		->where("chamado.id = $id")
+		->get();
+		
+		$data = (isset($data[0]->id)) ? $data[0] : null;
 
 		return $data;
 	}

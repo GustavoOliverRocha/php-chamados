@@ -70,7 +70,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="[[baseUri]]/chamado/cadastrar">
+                      <a href="[[baseUri]]/chamado/novo">
                         <span class="sub-item">Abrir novo</span>
                       </a>
                     </li>

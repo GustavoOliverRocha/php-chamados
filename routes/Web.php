@@ -14,9 +14,10 @@ return [
 	],
 	//'usuario' => [UserController2::class, 'home'],
 	//'configuracao' => [IndexController::class, 'home'],
-	'chamado/cadastrar' => [ChamadoIndex::class, 'cadastro'],
+	'chamado/novo' => [ChamadoIndex::class, 'cadastro'],
 	'chamado/save' => [ChamadoCadastro::class, 'save'],
 	'chamado/lista' => [ChamadoIndex::class, 'listar'],
+	'chamado/visualizar/{id}' => [ChamadoIndex::class, 'visualizar'],
 	'chamado/get' => [ChamadoData::class, 'get'],
 	'setor/get_for_user' => [SetorController::class, 'getAll'],
 	

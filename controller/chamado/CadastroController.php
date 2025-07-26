@@ -35,6 +35,12 @@ class CadastroController
             'setor_atendente' => $setor,
         ];
 
+        $descricao = Request::post('descricao');
+        if($descricao){
+            $data->desc = $descricao;
+        }
+
+
         return $data;
     }
 
