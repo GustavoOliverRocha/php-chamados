@@ -34,56 +34,64 @@
         }
     </style>
 
- <style>
-    .chat-container {
-      max-height: 400px;
-      overflow-y: auto;
-      padding: 15px;
-      background-color: #f8f9fa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-    .message {
-      margin-bottom: 20px;
-    }
-    .message .content {
-      display: inline-block;
-      padding: 10px 15px;
-      border-radius: 10px;
-      max-width: 70%;
-      position: relative;
-    }
-    .message.solicitante .content {
-      background-color: #d1e7dd;
-      margin-left: auto;
-    }
-    .message.atendente .content {
-      background-color: #e2e3e5;
-      margin-right: auto;
-    }
-    .message .timestamp {
-      display: block;
-      font-size: 0.8rem;
-      color: #6c757d;
-      margin-top: 5px;
-    }
-    .attachments {
-      margin-top: 5px;
-    }
-    .attachments a {
-      display: inline-block;
-      padding: 3px 8px;
-      margin-right: 5px;
-      border-radius: 4px;
-      background-color: #0d6efd;
-      color: #fff;
-      font-size: 0.85rem;
-      text-decoration: none;
-    }
-    .attachments a:hover {
-      background-color: #0b5ed7;
-    }
-  </style>
+    <style>
+        .chat-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+        }
+
+        .message .content {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 70%;
+            position: relative;
+        }
+
+        .message.solicitante .content {
+            background-color: #d1e7dd;
+            margin-left: auto;
+        }
+
+        .message.atendente .content {
+            background-color: #e2e3e5;
+            margin-right: auto;
+        }
+
+        .message .timestamp {
+            display: block;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .attachments {
+            margin-top: 5px;
+        }
+
+        .attachments a {
+            display: inline-block;
+            padding: 3px 8px;
+            margin-right: 5px;
+            border-radius: 4px;
+            background-color: #0d6efd;
+            color: #fff;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .attachments a:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
     <!-- Fonts and icons -->
     <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -167,7 +175,7 @@
                                             <span v-if="[[prioridade]] == 1" class="badge badge-primary" style="font-size: 13px;">[[prioridade_nome]]</span>
                                             <span v-else-if="[[prioridade]] == 2" class="badge badge-warning" style="font-size: 13px;">[[prioridade_nome]]</span>
                                             <span v-else-if="[[prioridade]] == 3" class="badge badge-danger" style="font-size: 13px;">[[prioridade_nome]]</span>
-                                            <span v-else-if="[[prioridade]] == 4" class="badge badge-danger"style="font-size: 13px;">[[prioridade_nome]]</span>
+                                            <span v-else-if="[[prioridade]] == 4" class="badge badge-danger" style="font-size: 13px;">[[prioridade_nome]]</span>
                                         </div>
                                         <div class="col-md-2" style="font-size: 15px;">
                                             <strong>Setor Solicitante:</strong><br> [[setor_solicitante_nome]]
@@ -211,7 +219,7 @@
                                 <div class="card-action text-center">
                                     <div class="row">
                                         <button class="btn btn-primary">
-                                            <i class="fa fa-ticket-alt "></i> Abrir chamado
+                                            <i class="fa fa-ticket-alt "></i> Atender
                                         </button>
                                     </div>
                                 </div>
@@ -223,43 +231,43 @@
                                 <div class="card-header">
                                     <div class="card-title">Conversa</div>
                                 </div>
-<div class="card-body">
-        <!-- Caixa de mensagens -->
-        <div class="chat-container mb-3" id="chatContainer">
-          <!-- Mensagem do atendente -->
-          <div class="message atendente">
-            <div class="content">
-              Bom dia, João! Qual erro você está enfrentando?
-              <span class="timestamp">Maria (Atendente) - 10:00</span>
-            </div>
-          </div>
-          <!-- Mensagem do solicitante -->
-          <div class="message solicitante">
-            <div class="content">
-              Bom dia! Não consigo acessar o sistema, aparece "Usuário não encontrado".
-              <span class="timestamp">João (Solicitante) - 10:02</span>
-            </div>
-          </div>
-          <!-- Mensagem do atendente com anexos -->
-          <div class="message atendente">
-            <div class="content">
-              Pode verificar se seu cadastro existe? Estou enviando um manual.
-              <div class="attachments">
-                <a href="#"><i class="fas fa-paperclip"></i> Manual.pdf</a>
-                <a href="#"><i class="fas fa-image"></i> Screenshot.png</a>
-              </div>
-              <span class="timestamp">Maria (Atendente) - 10:05</span>
-            </div>
-          </div>
-        </div>
+                                <div class="card-body">
+                                    <!-- Caixa de mensagens -->
+                                    <div class="chat-container mb-3" id="chatContainer">
+                                        <!-- Mensagem do atendente -->
+                                        <div class="message atendente">
+                                            <div class="content">
+                                                Bom dia, João! Qual erro você está enfrentando?
+                                                <span class="timestamp">Maria (Atendente) - 10:00</span>
+                                            </div>
+                                        </div>
+                                        <!-- Mensagem do solicitante -->
+                                        <div class="message solicitante">
+                                            <div class="content">
+                                                Bom dia! Não consigo acessar o sistema, aparece "Usuário não encontrado".
+                                                <span class="timestamp">João (Solicitante) - 10:02</span>
+                                            </div>
+                                        </div>
+                                        <!-- Mensagem do atendente com anexos -->
+                                        <div class="message atendente">
+                                            <div class="content">
+                                                Pode verificar se seu cadastro existe? Estou enviando um manual.
+                                                <div class="attachments">
+                                                    <a href="#"><i class="fas fa-paperclip"></i> Manual.pdf</a>
+                                                    <a href="#"><i class="fas fa-image"></i> Screenshot.png</a>
+                                                </div>
+                                                <span class="timestamp">Maria (Atendente) - 10:05</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <!-- Formulário de nova mensagem -->
-        <form class="d-flex gap-2">
-          <input type="text" class="form-control" placeholder="Digite sua mensagem...">
-          <button class="btn btn-secondary" type="button"><i class="fas fa-paperclip"></i></button>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-      </div>
+                                    <!-- Formulário de nova mensagem -->
+                                    <form class="d-flex gap-2">
+                                        <input type="text" class="form-control" placeholder="Digite sua mensagem...">
+                                        <button class="btn btn-secondary" type="button"><i class="fas fa-paperclip"></i></button>
+                                        <button class="btn btn-primary" type="submit">Enviar</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
