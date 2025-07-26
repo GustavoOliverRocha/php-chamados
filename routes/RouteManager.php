@@ -206,7 +206,7 @@ class RouteManager
 			
 			//Comparando se a rota montada é igual a do browser se for é a correta
 			if($trueRoute === implode('', $urlRoute) ){
-					$this->set($this->routes[$r][0], $request);
+					$this->set($this->routes[$r], $request);
 					/*PROVAVELMENTE REMOVER
 					
 					$controller_method = explode('@', $this->routes[$r][0]);
