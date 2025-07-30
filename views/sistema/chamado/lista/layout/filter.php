@@ -5,15 +5,19 @@
   </label>
   <div class="selectgroup w-100">
     <label class="selectgroup-item">
-      <input type="radio" name="status" class="selectgroup-input status" checked="" value="1">
+      <input type="radio" name="status" class="selectgroup-input status_filter" value="0">
+      <span class="selectgroup-button">Todos</span>
+    </label>
+    <label class="selectgroup-item">
+      <input type="radio" name="status" class="selectgroup-input status_filter" checked="" value="1">
       <span class="selectgroup-button">Aberto</span>
     </label>
     <label class="selectgroup-item">
-      <input type="radio" name="status" class="selectgroup-input selectgroup-input-warning status" value="2">
+      <input type="radio" name="status" class="selectgroup-input selectgroup-input-warning status_filter" value="2">
       <span class="selectgroup-button">Em andamento</span>
     </label>
     <label class="selectgroup-item">
-      <input type="radio" name="status" class="selectgroup-input status" value="3">
+      <input type="radio" name="status" class="selectgroup-input status_filter" value="3">
       <span class="selectgroup-button">Fechado</span>
     </label>
   </div>
@@ -26,19 +30,23 @@
   </label>
   <div class="selectgroup w-100">
     <label class="selectgroup-item">
-      <input type="radio" name="prioridade" class="selectgroup-input" checked="" value="1">
+      <input type="radio" name="prioridade" class="selectgroup-input prioridade_filter" value="0">
+      <span class="selectgroup-button">Todos</span>
+    </label>
+    <label class="selectgroup-item">
+      <input type="radio" name="prioridade" class="selectgroup-input prioridade_filter" value="1">
       <span class="selectgroup-button">Baixa</span>
     </label>
     <label class="selectgroup-item">
-      <input type="radio" name="prioridade" class="selectgroup-input selectgroup-input-warning" value="2">
+      <input type="radio" name="prioridade" class="selectgroup-input selectgroup-input-warning prioridade_filter" value="2">
       <span class="selectgroup-button">Média</span>
     </label>
     <label class="selectgroup-item">
-      <input type="radio" name="prioridade" class="selectgroup-input" value="3">
+      <input type="radio" name="prioridade" class="selectgroup-input prioridade_filter" value="3">
       <span class="selectgroup-button">Alta</span>
     </label>
     <label class="selectgroup-item">
-      <input type="radio" name="prioridade" class="selectgroup-input" value="4">
+      <input type="radio" name="prioridade" class="selectgroup-input prioridade_filter" value="4">
       <span class="selectgroup-button">Altíssima</span>
     </label>
   </div>

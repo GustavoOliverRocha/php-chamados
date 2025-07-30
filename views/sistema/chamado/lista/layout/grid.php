@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-for="chamado in setores">
+        <tr v-for="chamado in chamados">
             <td>{{chamado.id}}</td>
             <td>{{chamado.assunto}}</td>
             <td>{{chamado.usuario_solicitante_nome}} <br> <small>{{chamado.setor_solicitante_nome}}</small></td>
@@ -21,7 +21,7 @@
                 <span v-else-if="chamado.prioridade == 4" class="badge badge-danger">{{chamado.prioridade_nome}}</span>
             </td>
             <td>
-                <span v-if="chamado.status == 1" class="badge badge-primary">{{chamado.status_nome}}</span>
+                <span v-if="chamado.status == 1" class="badge badge-success">{{chamado.status_nome}}</span>
                 <span v-else-if="chamado.status == 2" class="badge badge-warning">{{chamado.status_nome}}</span>
                 <span v-else-if="chamado.status == 3" class="badge badge-danger">{{chamado.status_nome}}</span>
             </td>

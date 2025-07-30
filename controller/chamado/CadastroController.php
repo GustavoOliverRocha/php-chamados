@@ -53,4 +53,28 @@ class CadastroController
             echo $e->getMessage(); exit;
         }
     }
+
+    public function remover(){
+        try{
+            $chamado_id = Request::post('id','int');
+            if(!($chamado_id > 0)){
+                echoJson(['status' => 0, 'msg' => 'ID inválido']);
+            }
+
+            $chamado_model = new Chamado;
+            $chamado = $chamado_model->find($chamado_id);
+            if(!$chamado){
+                echoJson(['status' => 0, 'msg' => 'Chamado não encontrado']);
+            }
+
+            if($chamado->status != 1){
+                echoJson(['status' => 0, 'msg' => 'Chamado ja foi aberto']);
+            }
+
+            $chamado_model->remove($chamado_id);
+            echoJson(['status' => 1, 'msg' => 'Chamado removido com sucesso']);
+        }catch(Exception $e){
+            echoJson(['status' => -1, 'msg' => $e->getMessage()]);
+        }
+    }
 }

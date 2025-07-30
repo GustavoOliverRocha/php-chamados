@@ -104,14 +104,21 @@
                   <div class="card-title">Informações</div>
                 </div>
                 <div class="card-body">
-                  <div class="row">
+                  <div id="chamados-div" class="row">
                     @import(sistema.chamado.lista.layout.filter)
                     <div class="col-12">
                       @import(sistema.chamado.lista.layout.grid)
                     </div>
                   </div>
+                  <div id="loading-spinner-div" class="row d-none">
+                    <div class="col-12 text-center">
+                      <div id="loading-spinner" class="align-items-center">
+                        <div class="spinner-border text-primary me-3" role="status" aria-hidden="true" style="font-size: 15px;"></div><br>
+                        <strong>Carregando registros, aguarde...</strong>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -120,7 +127,13 @@
       @import(sistema.layout.footer)
     </div>
   </div>
-
+  <script>
+    const BASE_URL = '[[baseUri]]';
+    const FILTER = {
+      status: null,
+      prioridade: null,
+    };
+  </script>
   <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/core/jquery-3.7.1.min.js"></script>
   <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/core/popper.min.js"></script>
   <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/core/bootstrap.min.js"></script>
@@ -136,56 +149,10 @@
   <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
   <script src="[[baseUri]]/resources/kaiadmin-lite/assets/js/kaiadmin.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script>
-    const BASE_URL = '[[baseUri]]';
-  </script>
-  <script>
-    const {
-      createApp,
-      ref,
-      onMounted
-    } = Vue
+  <script src="[[baseUri]]/views/sistema/chamado/lista/index-vue.js"></script>
+  <script src="[[baseUri]]/views/sistema/chamado/lista/index.js"></script>
 
-    createApp({
-      setup() {
-        const setores = ref([]);
-        const get_chamados = async () => {
-          try {
-            let situacao = document.querySelector('input[name="status"]:checked');
-            let prioridade = document.querySelector('input[name="prioridade"]:checked');
-            const params = new URLSearchParams({
-              situacao: situacao,
-              prioridade: prioridade
-            }).toString();
 
-            console.log(situacao);
-            const URL = BASE_URL + '/chamado/get/';
-            let response = await fetch(URL);
-            let json = await response.json();
-            console.log(json);
-            setores.value = json.data;
-            console.log(setores.value);
-          } catch (error) {
-            //data.value = [];
-            console.log(response);
-            console.log(error.message);
-          }
-        };
-
-        onMounted(() => {
-          get_chamados();
-        });
-
-        return {
-          setores
-        };
-      }
-    }).mount('#vue-app');
-
-    function sds() {
-
-    }
-  </script>
 </body>
 
 </html>
